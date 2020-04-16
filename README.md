@@ -19,7 +19,7 @@
 - https://sequelize.org/master/manual/querying.html
 - https://sequelize.org/master/manual/raw-queries.html
 
-## MySql docker container
+## Setup
 
 Copy dotenv:
 
@@ -44,6 +44,5 @@ start our dev server:
 
 ```bash
 $ yarn
-$ yarn sequelize-cli db:create
 $ yarn start
 ```
