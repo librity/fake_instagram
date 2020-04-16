@@ -1,5 +1,6 @@
-import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
+const Sequelize = require('sequelize');
+const { Model } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 class User extends Model {
   static init(sequelize) {
@@ -16,7 +17,7 @@ class User extends Model {
       }
     );
 
-    this.addHook('beforeSave', async user => {
+    this.addHook('beforeSave', async (user) => {
       if (user.password) {
         user.password_hash = await bcrypt.hash(user.password, 8);
       }
@@ -30,4 +31,4 @@ class User extends Model {
   }
 }
 
-export default User;
+module.exports = User;

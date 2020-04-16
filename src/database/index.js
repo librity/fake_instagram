@@ -1,12 +1,12 @@
-const  Sequelize =  require('sequelize');
+const Sequelize = require('sequelize');
 
-const  { development } =  require('../config/database');
-// import models from '../app/models';
+const { development } = require('../config/database');
+const models = require('../app/models/index');
 
 class Database {
   constructor() {
     this.init();
-    // this.loadModels();
+    this.loadModels();
   }
 
   init() {
@@ -22,13 +22,13 @@ class Database {
       });
   }
 
-  // loadModels() {
-  //   models
-  //     .map((model) => model.init(this.connection))
-  //     .map(
-  //       (model) => model.associate && model.associate(this.connection.models)
-  //     );
-  // }
+  loadModels() {
+    models
+      .map((model) => model.init(this.connection))
+      .map(
+        (model) => model.associate && model.associate(this.connection.models)
+      );
+  }
 }
 
 module.exports = new Database();

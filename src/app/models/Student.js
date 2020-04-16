@@ -1,4 +1,5 @@
-import Sequelize, { Model } from 'sequelize';
+const Sequelize = require('sequelize');
+const { Model } = require('sequelize');
 
 class Student extends Model {
   static init(sequelize) {
@@ -18,7 +19,7 @@ class Student extends Model {
       }
     );
 
-    this.addHook('beforeSave', async student => {
+    this.addHook('beforeSave', async (student) => {
       if (student.weight_metric) {
         student.weight_imperial = student.weight_metric * 2.205;
       } else if (student.weight_imperial) {
@@ -49,4 +50,4 @@ class Student extends Model {
   }
 }
 
-export default Student;
+module.exports = Student;
