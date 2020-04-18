@@ -7,7 +7,7 @@ rootRoutes.get('/', (req, res) => {
 });
 
 rootRoutes.get('/registro', (req, res) => {
-  return res.render('auth/register');
+  return res.render('auth/register', { messages: [] });
 });
 
 rootRoutes.get('/home', (req, res) => {

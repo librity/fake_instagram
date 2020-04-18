@@ -7,7 +7,7 @@ import errorRoutes from './errorRoutes';
 const router = Router();
 
 router.use('/', rootRoutes);
-router.use('/user', usersRoutes);
+router.use('/users', usersRoutes);
 
 router.use(errorRoutes);
 
