@@ -2,13 +2,14 @@ import { Router } from 'express';
 
 import rootRoutes from './rootRoutes';
 import usersRoutes from './usersRoutes';
-import errorRoutes from './errorRoutes';
 
 const router = Router();
 
 router.use('/', rootRoutes);
 router.use('/users', usersRoutes);
 
-router.use(errorRoutes);
+router.use('*', (req, res) => {
+  return res.status(404).render('errors/404');
+});
 
 export default router;

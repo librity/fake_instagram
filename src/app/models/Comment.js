@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-const { Model } = require('sequelize');
+import Sequelize, { Model } from 'sequelize';
 
 class Comment extends Model {
   static init(sequelize) {
@@ -23,4 +22,4 @@ class Comment extends Model {
   }
 }
 
-module.exports = Comment;
+export default Comment;

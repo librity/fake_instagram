@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
-const { development } = require('../config/database');
-const models = require('../app/models/index');
+import { development } from '../config/database';
+import models from '../app/models/index';
 
 class Database {
   constructor() {

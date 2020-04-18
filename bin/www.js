@@ -1,15 +1,16 @@
-import app from '../src/app';
 const debug = require('debug')('fake-instagram:server');
-const http = require('http');
+
+import app from '../src/app';
+import http from 'http';
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const server = http.createServer(app);
-
 server.listen(port, () =>
   console.log(`Server 👂listening on ⚓port ${port}...`)
 );
+
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -17,12 +18,10 @@ function normalizePort(val) {
   const port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
 
   if (port >= 0) {
-    // port number
     return port;
   }
 
@@ -36,7 +35,6 @@ function onError(error) {
 
   const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');

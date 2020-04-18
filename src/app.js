@@ -5,10 +5,11 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import methodOverride from 'method-override';
-import { errors } from 'celebrate';
+import { errors as celebrateValidations } from 'celebrate';
 
 import './database';
 import router from './router';
+import youch from './config/youch';
 
 class App {
   constructor() {
@@ -16,9 +17,9 @@ class App {
 
     this.config();
     this.views();
-    this.middlewares();
+    // this.middlewares();
     this.routes();
-    this.exceptionHandler();
+    this.exceptionHandlers();
   }
 
   config() {
@@ -36,15 +37,17 @@ class App {
     this.server.set('view engine', 'ejs');
   }
 
-  middlewares() {
-    this.server.use(errors());
-  }
+  // middlewares() {}
 
   routes() {
     this.server.use(router);
   }
 
-  exceptionHandler() {}
+  exceptionHandlers() {
+    this.server.use(celebrateValidations());
+
+    this.server.use(youch);
+  }
 }
 
 export default new App().server;

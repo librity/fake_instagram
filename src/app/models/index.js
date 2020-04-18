@@ -1,5 +1,5 @@
-const { readdirSync } = require('fs');
-const { basename, join } = require('path');
+import { readdirSync } from 'fs';
+import { basename, join } from 'path';
 
 const models = [];
 
@@ -13,9 +13,9 @@ const fileNames = readdirSync(__dirname).filter(
 fileNames.forEach((file) => {
   const model = require(join(__dirname, file));
 
-  models.push(model);
+  models.push(model.default);
 });
 
 console.info(`Successfully imported models: ${fileNames.join(', ')}`);
 
-module.exports = models;
+export default models;
