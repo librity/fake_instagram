@@ -5,13 +5,13 @@ const models = require('../app/models/index');
 
 class Database {
   constructor() {
+    this.connection = new Sequelize(development);
+
     this.init();
     this.loadModels();
   }
 
   init() {
-    this.connection = new Sequelize(development);
-
     this.connection
       .authenticate()
       .then(() => {
@@ -31,4 +31,4 @@ class Database {
   }
 }
 
-module.exports = new Database();
+export default new Database();

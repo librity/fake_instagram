@@ -1,4 +1,6 @@
-# Notes
+# Instagram clone
+
+Forked from https://github.com/vinnydeveloper/fake_instagram
 
 ## Resources
 
@@ -33,16 +35,12 @@ Create a persistent docker container:
 $ docker run --name mysql_5_7_29 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5
 ```
 
-Connect to it from the terminal and run the sql script `./database_init/fake-instagram.sql`:
-
-```bash
-$ mysql -u root -h 0.0.0.0 -p
-```
-
-We then install the dependencies, create the database with sequelize-cli and
-start our dev server:
+We then install our dependencies, create and migrate our database and start our
+dev server:
 
 ```bash
 $ yarn
+$ yarn sequelize db:create
+$ yarn sequelize db:migrate
 $ yarn start
 ```

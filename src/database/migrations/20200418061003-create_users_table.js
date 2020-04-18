@@ -16,15 +16,20 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      username: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      avatar: {
+        type: Sequelize.STRING,
+      },
+
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      admin: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
+
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -36,7 +41,7 @@ module.exports = {
     });
   },
 
-  down: queryInterface => {
+  down: (queryInterface) => {
     return queryInterface.dropTable('users');
   },
 };
