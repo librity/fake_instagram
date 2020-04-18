@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+
+    <% if (messages != 'undefined' && messages.length > 0) { %>
+      <ul>
+        <% messages.forEach( message => { %>
+        <li><%= message %></li>
+        <% } ) %>
+      </ul>
+    <% } %>
+
     <main class="container content-auth">
-
-      <% if (messages != 'undefined' && messages.length > 0) { %>
-        <ul>
-          <% messages.forEach( message => { %>
-          <li><%= message %></li>
-          <% } ) %>
-        </ul>
-      <% } %>
-
       <div id="banner">
         <img src="/img/banner-login.png" alt="" srcset="" />
         <p>

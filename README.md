@@ -23,24 +23,34 @@ Forked from https://github.com/vinnydeveloper/fake_instagram
 
 ## Setup
 
-Copy dotenv:
+1. copy dotenv:
 
 ```bash
 $ cp .env.example .env
 ```
 
-Create a persistent docker container:
+2. create a persistent mysql5 docker container:
 
 ```bash
 $ docker run --name mysql_5_7_29 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5
 ```
 
-We then install our dependencies, create and migrate our database and start our
-dev server:
+3. install our dependencies
 
 ```bash
 $ yarn
+```
+
+4. Create, migrate and seed our database:
+
+```bash
 $ yarn sequelize db:create
 $ yarn sequelize db:migrate
+$ yarn sequelize db:seed:all
+```
+
+5. start our dev server:
+
+```bash
 $ yarn start
 ```
