@@ -1,26 +1,50 @@
 import 'dotenv';
 
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 import methodOverride from 'method-override';
+import { errors } from 'celebrate';
 
 import './database';
 import router from './router';
 
-var app = express();
+class App {
+  constructor() {
+    this.server = express();
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+    this.config();
+    this.views();
+    this.middlewares();
+    this.routes();
+    this.exceptionHandler();
+  }
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use(methodOverride('_method'));
+  config() {
+    this.server.use(express.json());
+    this.server.use(express.static(path.join(__dirname, '..', 'public')));
+    this.server.use(express.urlencoded({ extended: true }));
 
-app.use(router);
+    this.server.use(logger('dev'));
+    this.server.use(cookieParser());
+    this.server.use(methodOverride('_method'));
+  }
 
-module.exports = app;
+  views() {
+    this.server.set('views', path.join(__dirname, 'views'));
+    this.server.set('view engine', 'ejs');
+  }
+
+  middlewares() {
+    this.server.use(errors());
+  }
+
+  routes() {
+    this.server.use(router);
+  }
+
+  exceptionHandler() {}
+}
+
+export default new App().server;

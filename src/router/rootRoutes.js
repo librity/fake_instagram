@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
-import SessionsController from '../app/controllers/SessionsController'
+import SessionsController from '../app/controllers/SessionsController';
+import SessionValidator from '../app/validators/SessionValidator';
 
 const rootRoutes = Router();
 
@@ -8,7 +9,11 @@ rootRoutes.get('/', (req, res) => {
   return res.render('auth/login', { messages: [] });
 });
 
-rootRoutes.post('/sessions', SessionsController.create);
+rootRoutes.post(
+  '/sessions',
+  SessionValidator.create,
+  SessionsController.create
+);
 
 rootRoutes.get('/registro', (req, res) => {
   return res.render('auth/register', { messages: [] });

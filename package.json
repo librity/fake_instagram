@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./src/bin/www.js"
+    "start": "nodemon ./bin/www.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "celebrate": "^12.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
