@@ -1,10 +1,7 @@
 import { Router } from 'express';
 
-import SessionsController from '../app/controllers/SessionsController';
-
 const rootRoutes = Router();
 
-rootRoutes.get('/', SessionsController.neW);
-
+rootRoutes.get('/', (req, res) => res.redirect('/sessions/new'));
 
 export default rootRoutes;

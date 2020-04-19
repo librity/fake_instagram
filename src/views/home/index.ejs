@@ -3,8 +3,6 @@ Home
 
 <%- contentFor('body') %>
 
-<% include('../shared/_flash') %>
-
 <header>
   <div class="container header">
     <div id="logo">
@@ -21,19 +19,23 @@ Home
       </a>
       <a href="">
         <div class="avatar-content">
-          <img class="avatar" src="/img/avatar-example.png" />
-          <b>nati.carolira</b>
+          <img class="avatar" src="<%= req.session.user.avatar || '/img/avatar-example.png' %>" />
+          <b><%= req.session.user.username %></b>
         </div>
       </a>
     </nav>
   </div>
 </header>
+
 <main class="container content">
+
+  <%- include('../shared/_flash') %>
+
   <div class="card">
     <div class="card-header">
       <div>
-        <img class="avatar" src="/img/avatar-example.png" />
-        <b>nati.carolira</b>
+        <img class="avatar" src="<%= req.session.user.avatar || '/img/avatar-example.png' %>" />
+        <b><%= req.session.user.username %></b>
       </div>
       <img src="/img/icons/more-vertical.svg" />
     </div>

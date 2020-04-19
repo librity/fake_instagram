@@ -1,7 +1,7 @@
 export default (req, res, next) => {
-  const { username } = req.session;
+  const { user } = req.session;
 
-  if (username != undefined && username != null) return next();
+  if (user != undefined && user != null) return next();
 
-  return res.redirect('/');
+  return res.render('sessions/new');
 };

@@ -4,7 +4,6 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import methodOverride from 'method-override';
-import { errors as celebrateValidations } from 'celebrate';
 import { join } from 'path';
 
 import expressLayouts from 'express-ejs-layouts';
@@ -13,6 +12,7 @@ import cors from 'cors';
 import './database';
 import templateLocals from './app/middlewares/templateLocals';
 import router from './router';
+import celebrateErrors from './config/celebrateErrors';
 import youch from './config/youch';
 import sessions from './config/sessions';
 
@@ -59,7 +59,7 @@ class App {
   }
 
   exceptionHandlers() {
-    this.server.use(celebrateValidations());
+    this.server.use(celebrateErrors);
 
     this.server.use(youch);
   }

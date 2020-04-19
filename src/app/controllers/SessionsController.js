@@ -1,8 +1,10 @@
 import User from '../models/User';
 
 class SessionsController {
-  neW (req,res) {
-    return res.render('sessions/new')
+  async neW(req, res) {
+    req.session.messageRender = 'sessions/new';
+
+    return res.render('sessions/new');
   }
 
   async create(req, res) {
@@ -11,10 +13,13 @@ class SessionsController {
     const user = await User.findOne({ where: { email } });
 
     if (!user || !(await user.checkPassword(password))) {
-      return res.render('auth/login', {
-        messages: ['Falha na autenticação.'],
+      return res.render('sessions/new', {
+        message: 'Falha na autenticação.',
+        type: 'danger',
       });
     }
+
+    req.session.user = user;
 
     return res.redirect('/home');
   }
