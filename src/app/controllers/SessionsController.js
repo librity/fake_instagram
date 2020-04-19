@@ -1,6 +1,10 @@
 import User from '../models/User';
 
 class SessionsController {
+  neW (req,res) {
+    return res.render('sessions/new')
+  }
+
   async create(req, res) {
     const { email, password } = req.body;
 

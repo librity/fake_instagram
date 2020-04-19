@@ -1,3 +1,17 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<%- contentFor('title') %> 500 <%- contentFor('body') %>
+<div class="board">
+  <p id="error">
+    error
+  </p>
+
+  <p id="code">
+    500
+  </p>
+
+  <a href="/" id="home">
+    return home
+  </a>
+</div>
+
+<!-- STYLE -->
+<link rel="stylesheet" href="/css/access/error.css" type="text/css" />

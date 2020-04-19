@@ -1,6 +1,10 @@
 import User from '../models/User';
 
 class UsersController {
+  neW (req,res) {
+    return res.render('users/new')
+  }
+
   async create(req, res) {
     const { name, email, username, password } = req.body;
 

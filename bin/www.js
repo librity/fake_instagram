@@ -1,14 +1,15 @@
-const debug = require('debug')('fake-instagram:server');
-
+import debug from 'debug';
 import app from '../src/app';
 import http from 'http';
+
+const serverDebug = debug('fake-instagram:server')
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const server = http.createServer(app);
 server.listen(port, () =>
-  console.log(`Server 👂listening on ⚓port ${port}...`)
+console.log(`Server 👂listening on ⚓port ${port}...`)
 );
 
 server.on('error', onError);
@@ -51,6 +52,7 @@ function onError(error) {
 
 function onListening() {
   const addr = server.address();
+
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  serverDebug('Listening on ' + bind);
 }

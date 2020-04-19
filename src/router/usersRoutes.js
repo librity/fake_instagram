@@ -5,10 +5,7 @@ import UserValidator from '../app/validators/UserValidator';
 
 const usersRoutes = Router();
 
-usersRoutes.get('/', (req, res) => {
-  return res.send('respond with a resource');
-});
-
+usersRoutes.get('/new', UsersController.neW);
 usersRoutes.post('/', UserValidator.create, UsersController.create);
 
 export default usersRoutes;

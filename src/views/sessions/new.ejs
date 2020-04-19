@@ -1,0 +1,41 @@
+<%- contentFor('title') %>
+Login
+
+<%- contentFor('body') %>
+
+<% include('../shared/_flash') %>
+
+<main class="container content-auth">
+  <div id="banner">
+    <img src="/img/banner-login.png" alt="" srcset="" />
+  </div>
+  <div class="content">
+    <form class="form-auth card" action="/sessions" method="POST">
+      <div id="logo">
+        <img src="img/logo.png" alt="" />
+      </div>
+
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Digite seu email"
+      />
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Senha"
+      />
+
+      <button type="submit">
+        Entrar
+      </button>
+      <div class="register card">
+        <p>
+          Não tem uma conta? <a href="/users/new"><b>Cadastre-se</b></a>
+        </p>
+      </div>
+    </form>
+  </div>
+</main>
