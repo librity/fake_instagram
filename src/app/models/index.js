@@ -16,6 +16,6 @@ fileNames.forEach((file) => {
   models.push(model.default);
 });
 
-console.info(`Successfully imported models: ${fileNames.join(', ')}`);
+console.info(`📦 Successfully imported models: ${fileNames.join(', ')}`);
 
 export default models;

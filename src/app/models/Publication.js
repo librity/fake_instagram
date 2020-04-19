@@ -6,6 +6,9 @@ class Publication extends Model {
       {
         image: Sequelize.STRING,
         likes: Sequelize.INTEGER,
+
+        created_at: Sequelize.DATE,
+        updated_at: Sequelize.DATE,
       },
       {
         sequelize,
@@ -17,6 +20,7 @@ class Publication extends Model {
 
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.hasMany(models.Comment, { foreignKey: 'publication_id' });
   }
 }
 

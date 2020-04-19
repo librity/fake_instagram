@@ -6,7 +6,7 @@ export default async (err, req, res, next) => {
 
     return res
       .status(400)
-      .render(req.session.messageRender, { message, type: 'danger' });
+      .render(req.session.messageRender || 'errors/400', { message, type: 'danger' });
   }
 
   return next(err);

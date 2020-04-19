@@ -54,3 +54,21 @@ $ yarn sequelize db:seed:all
 ```bash
 $ yarn start
 ```
+
+## Done
+
+- [x] Sequelize migrations
+- [x] Sequelize seeds
+- [x] Sequelize models
+- [x] User creation
+- [x] Login and Authentication
+- [x] Param Validations (celebrate)
+- [x] Home feed
+
+## Pending:
+
+- [ ] Create comments
+- [ ] Search users
+- [ ] Following/followed resource
+- [ ] Home feed shows followed-users' publications
+- [ ] Like resource

@@ -1,11 +1,12 @@
 const faker = require('faker');
 
-const fakeComments = Array(300)
+const fakeComments = Array(1000)
   .fill()
   .map((_num) => {
     return {
       description: faker.lorem.sentence(),
-      publication_id: Math.floor(Math.random() * 99) + 1,
+      publication_id: Math.floor(Math.random() * 499) + 1,
+      user_id: Math.floor(Math.random() * 99) + 1,
 
       created_at: new Date(),
       updated_at: new Date(),

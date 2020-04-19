@@ -12,6 +12,9 @@ class User extends Model {
 
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,
+
+        created_at: Sequelize.DATE,
+        updated_at: Sequelize.DATE,
       },
       {
         sequelize,
@@ -25,6 +28,11 @@ class User extends Model {
     });
 
     return this;
+  }
+
+  static associate(models) {
+    this.hasMany(models.Publication, { foreignKey: 'user_id' });
+    this.hasMany(models.Comment, { foreignKey: 'user_id' });
   }
 
   checkPassword(password) {

@@ -3,7 +3,7 @@ const faker = require('faker');
 
 faker.locale = 'pt_BR';
 
-const fakeUsers = Array(30)
+const fakeUsers = Array(100)
   .fill()
   .map((_num) => {
     return {

@@ -1,0 +1,194 @@
+{
+  "databaseSchema": [
+    "SequelizeMeta",
+    "comments",
+    "publications",
+    "users"
+  ],
+  "tableSchemas": [
+    {
+      "SequelizeMeta": {
+        "name": {
+          "type": "VARCHAR(255)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": true,
+          "autoIncrement": false,
+          "comment": null
+        }
+      }
+    },
+    {
+      "comments": {
+        "id": {
+          "type": "INT(11)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": true,
+          "autoIncrement": true,
+          "comment": null
+        },
+        "description": {
+          "type": "TEXT",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "updated_at": {
+          "type": "DATETIME",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "publication_id": {
+          "type": "INT(11)",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "user_id": {
+          "type": "INT(11)",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        }
+      }
+    },
+    {
+      "publications": {
+        "id": {
+          "type": "INT(11)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": true,
+          "autoIncrement": true,
+          "comment": null
+        },
+        "image": {
+          "type": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "likes": {
+          "type": "INT(11)",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "updated_at": {
+          "type": "DATETIME",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "user_id": {
+          "type": "INT(11)",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        }
+      }
+    },
+    {
+      "users": {
+        "id": {
+          "type": "INT(11)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": true,
+          "autoIncrement": true,
+          "comment": null
+        },
+        "name": {
+          "type": "VARCHAR(255)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "email": {
+          "type": "VARCHAR(255)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "username": {
+          "type": "VARCHAR(255)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "avatar": {
+          "type": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "password_hash": {
+          "type": "VARCHAR(255)",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "created_at": {
+          "type": "DATETIME",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        },
+        "updated_at": {
+          "type": "DATETIME",
+          "allowNull": false,
+          "defaultValue": null,
+          "primaryKey": false,
+          "autoIncrement": false,
+          "comment": null
+        }
+      }
+    }
+  ]
+}

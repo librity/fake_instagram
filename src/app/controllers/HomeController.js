@@ -6,20 +6,31 @@ class HomeController {
   async index(req, res) {
     const { id } = req.session.user;
 
+    const { page = 1, requestsPerPage = 20 } = req.query;
+
     const publications = await Publication.findAll({
       where: {
         user_id: id,
       },
-      // include: [
-      //   {
-      //     model: Comment,
-      //     as: 'comment',
-      //   },
-      // ],
-      order: ['updated_at'],
+      limit: requestsPerPage,
+      offset: (page - 1) * requestsPerPage,
+      include: [
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              as: 'user',
+            },
+          ],
+        },
+        {
+          model: User,
+          as: 'user',
+        },
+      ],
+      order: ['created_at'],
     });
-
-    console.log(publications);
 
     return res.render('home', { publications });
   }
