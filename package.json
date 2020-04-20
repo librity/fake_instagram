@@ -1,8 +1,10 @@
 {
-  "name": "fake-instagram",
+  "name": "instagram_clone",
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "database": "yarn sequelize db:drop; yarn sequelize db:create && yarn sequelize db:migrate && yarn sequelize db:seed:all",
+    "schema": "node -r esm bin/schema.js",
     "start": "nodemon ./bin/www.js"
   },
   "dependencies": {
@@ -14,6 +16,7 @@
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
+    "esm": "^3.2.25",
     "express": "~4.16.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",

@@ -1,0 +1,30 @@
+<%- contentFor('title') %> Usuários <%- contentFor('body') %>
+
+<%- include('../shared/_headbar') %>
+
+<main class="container content">
+  <%- include('../shared/_flash') %>
+
+  <span class="user_search_results_counter" ><%= users.count || '0' %> usuários encontrados: </span>
+
+  <div class="user_search_container">
+    <% users.rows.forEach(user=> { %>
+  
+    <div class="card">
+      <div class="card-header">
+  
+          <b><%= user.username || 'test' %></b>
+      </div>
+      <div class="card-img">
+        <img src="<%= user.avatar || '/img/publication_example.jpg' %>" />
+      </div>
+      <div class="card-body">
+      
+      </div>
+    </div>
+  
+    <% }) %>
+  </div>
+</main>
+
+<link rel="stylesheet" href="/css/users/styles.css">

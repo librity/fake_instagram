@@ -41,12 +41,11 @@ $ docker run --name mysql_5_7_29 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mys
 $ yarn
 ```
 
-4. Create, migrate and seed our database:
+4. Create, migrate and seed our database and create a schema:
 
 ```bash
-$ yarn sequelize db:create
-$ yarn sequelize db:migrate
-$ yarn sequelize db:seed:all
+$ yarn database
+$ yarn schema
 ```
 
 5. start our dev server:
@@ -55,7 +54,7 @@ $ yarn sequelize db:seed:all
 $ yarn start
 ```
 
-## Done
+## Features
 
 - [x] Sequelize migrations
 - [x] Sequelize seeds
@@ -64,11 +63,8 @@ $ yarn start
 - [x] Login and Authentication
 - [x] Param Validations (celebrate)
 - [x] Home feed
-
-## Pending:
-
+- [x] Search users (index)
 - [ ] Create comments
-- [ ] Search users
 - [ ] Following/followed resource
 - [ ] Home feed shows followed-users' publications
 - [ ] Like resource

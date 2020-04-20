@@ -2,14 +2,14 @@ import debug from 'debug';
 import app from '../src/app';
 import http from 'http';
 
-const serverDebug = debug('fake-instagram:server')
+const serverDebug = debug('instagram_clone:server');
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const server = http.createServer(app);
 server.listen(port, () =>
-console.log(`👂 Server listening on ⚓port ${port}...`)
+  console.log(`👂 Server listening on ⚓port ${port}...`)
 );
 
 server.on('error', onError);
