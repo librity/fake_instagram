@@ -3,6 +3,7 @@ body {
   padding: 0;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
+
 .auth {
   background: #fafafa;
 }
@@ -10,6 +11,13 @@ body {
 a {
   color: #00b7ff;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+}
+
 header {
   height: 50px;
   border-bottom: 0.5px solid #d7d7d7;
@@ -39,6 +47,12 @@ header {
   align-items: center;
   flex-direction: column;
 }
+
+.flex_wrap_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .content-auth {
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-header">
+    <div>
+      <img
+        class="avatar"
+        src="<%= publication.user.avatar || '/img/avatar-example.png' %>"
+      />
+      <b><%= publication.user.username %></b>
+    </div>
+
+    <img src="/img/icons/more-vertical.svg" />
+  </div>
+
+  <div class="card-img">
+    <img src="<%= publication.image || '/img/publication_example.jpg' %>" />
+  </div>
+
+  <div class="card-body">
+    <div class="card-itens">
+      <div class="likes">
+        <form action="/publications/<%= publication.id %>/like" method="POST">
+          <button type="submit">
+            <img src="/img/icons/heart.svg" />
+          </button>
+        </form>
+
+        <b><%= publication.likes %> likes</b>
+      </div>
+      <b>
+        Postado no dia: <%= new
+        Date(publication.created_at).toLocaleDateString() %>
+      </b>
+    </div>
+
+    <div class="card-comments">
+      <% publication.Comments.forEach(comment=> { %>
+
+      <p><b><%= comment.user.username %></b> <%= comment.description %></p>
+
+      <% }) %>
+    </div>
+  </div>
+
+  <form
+    class="form-comments"
+    action="/publications/<%= publication.id %>/comments"
+    method="POST"
+  >
+    <input
+      type="text"
+      id="user_id"
+      name="user_id"
+      value="<%= req.session.user.id %>"
+      hidden
+      placeholder="Adicione um comentário..."
+    />
+    <input
+      type="text"
+      id="description"
+      name="description"
+      placeholder="Adicione um comentário..."
+    />
+    <button>Publicar</button>
+  </form>
+</div>

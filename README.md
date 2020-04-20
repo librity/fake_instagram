@@ -41,14 +41,19 @@ $ docker run --name mysql_5_7_29 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mys
 $ yarn
 ```
 
-4. Create, migrate and seed our database and create a schema:
+4. create, migrate and seed our database:
 
 ```bash
 $ yarn database
+```
+
+5. generate a json file discribing our database's schema (for convinience):
+
+```bash
 $ yarn schema
 ```
 
-5. start our dev server:
+6. start our dev server:
 
 ```bash
 $ yarn start
@@ -65,7 +70,7 @@ $ yarn start
 - [x] Home feed
 - [x] Search users (index)
 - [x] Create comments
-- [ ] Basic Like resource
+- [x] Basic like functionality for publications
 - [ ] Advanced Like resource
 - [ ] Following/followed resource
 - [ ] Home feed shows followed-users' publications

@@ -6,9 +6,3 @@
   margin-top: 20px;
   margin-left: 20px;
 }
-
-.user_search_container {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-}

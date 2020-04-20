@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+      <b><%= user.username %></b>
+  </div>
+
+  <div class="card-img">
+    <img src="<%= user.avatar || '/img/publication_example.jpg' %>" />
+  </div>
+
+  <div class="card-body">
+    <dl>
+      <dt>Nome</dt>
+      <dd><%= user.name %></dd>
+
+      <dt>Email</dt>
+      <dd><%= user.email %></dd>
+
+      <dt>Usuário desde</dt>
+      <dd><%= new Date(user.created_at).toLocaleDateString() %></dd>
+    </dl>
+  </div>
+</div>

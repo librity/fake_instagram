@@ -4,14 +4,9 @@ import Comment from '../models/Comment';
 
 class HomeController {
   async index(req, res) {
-    const { id } = req.session.user;
-
     const { page = 1, requestsPerPage = 20 } = req.query;
 
     const publications = await Publication.findAll({
-      where: {
-        user_id: id,
-      },
       limit: requestsPerPage,
       offset: (page - 1) * requestsPerPage,
       include: [
