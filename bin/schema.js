@@ -10,7 +10,7 @@ const generateSchema = async () => {
 
   const databaseSchema = await queryInterface
     .showAllSchemas()
-    .map((table) => table['Tables_in_instagram_clone']);
+    .map((table) => table[`Tables_in_${development.database}`]);
 
   const tableSchemas = await Promise.all(
     databaseSchema.map(async (table) => {

@@ -20,6 +20,9 @@ Forked from https://github.com/vinnydeveloper/fake_instagram
 - https://sequelize.org/master/manual/model-basics.html
 - https://sequelize.org/master/manual/querying.html
 - https://sequelize.org/master/manual/raw-queries.html
+- https://sequelize.org/master/manual/model-querying-basics.html
+- https://sequelize.org/master/manual/creating-with-associations.html
+- https://sequelize.org/master/manual/model-instances.html#incrementing-and-decrementing-integer-values
 
 ## Setup
 
@@ -71,6 +74,7 @@ $ yarn start
 - [x] Search users (index)
 - [x] Create comments
 - [x] Basic like functionality for publications
+- [ ] Create publication with image upload
 - [ ] Advanced Like resource
 - [ ] Following/followed resource
 - [ ] Home feed shows followed-users' publications
