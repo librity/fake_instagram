@@ -12,6 +12,6 @@ usersRoutes.post('/', UserValidator.create, UsersController.create);
 
 usersRoutes.use(authentication);
 
-usersRoutes.get('/', UsersController.index);
+usersRoutes.get('/', UserValidator.index, UsersController.index);
 
 export default usersRoutes;

@@ -1,11 +1,8 @@
-<%- contentFor('title') %> Home <%- contentFor('body') %>
-
-<%- include('../shared/_headbar') %>
+<%- contentFor('title') %> Home <%- contentFor('body') %> <%-
+include('../shared/_headbar') %>
 
 <main class="container content">
-  <%- include('../shared/_flash') %>
-
-  <% publications.forEach(publication=> { %>
+  <%- include('../shared/_flash') %> <% publications.forEach(publication=> { %>
 
   <div class="card">
     <div class="card-header">
@@ -27,7 +24,10 @@
           <img src="/img/icons/heart.svg" />
           <b><%= publication.likes %> likes</b>
         </div>
-        <b>Postado no dia: <%= new Date(publication.created_at).toLocaleDateString() %></b>
+        <b
+          >Postado no dia: <%= new
+          Date(publication.created_at).toLocaleDateString() %></b
+        >
       </div>
       <div class="card-comments">
         <% publication.Comments.forEach(comment=> { %>
@@ -37,8 +37,25 @@
         <% }) %>
       </div>
     </div>
-    <form class="form-comments" action="">
-      <input type="text" placeholder="Adicione um comentário..." />
+    <form
+      class="form-comments"
+      action="/publications/<%= publication.id %>/comments"
+      method="POST"
+    >
+      <input
+        type="text"
+        id="user_id"
+        name="user_id"
+        value="<%= req.session.user.id %>"
+        hidden
+        placeholder="Adicione um comentário..."
+      />
+      <input
+        type="text"
+        id="description"
+        name="description"
+        placeholder="Adicione um comentário..."
+      />
       <button>Publicar</button>
     </form>
   </div>

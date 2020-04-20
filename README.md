@@ -64,7 +64,8 @@ $ yarn start
 - [x] Param Validations (celebrate)
 - [x] Home feed
 - [x] Search users (index)
-- [ ] Create comments
+- [x] Create comments
+- [ ] Basic Like resource
+- [ ] Advanced Like resource
 - [ ] Following/followed resource
 - [ ] Home feed shows followed-users' publications
-- [ ] Like resource

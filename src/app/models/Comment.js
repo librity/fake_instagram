@@ -4,6 +4,11 @@ class Comment extends Model {
   static init(sequelize) {
     super.init(
       {
+        id: {
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+        },
+
         description: Sequelize.TEXT,
 
         created_at: Sequelize.DATE,

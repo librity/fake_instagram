@@ -4,6 +4,11 @@ class Publication extends Model {
   static init(sequelize) {
     super.init(
       {
+        id: {
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+        },
+
         image: Sequelize.STRING,
         likes: Sequelize.INTEGER,
 
