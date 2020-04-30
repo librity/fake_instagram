@@ -4,7 +4,7 @@ import Comment from '../models/Comment';
 
 class HomeController {
   async index(req, res) {
-    const { page = 1, requestsPerPage = 20 } = req.query;
+    const { page = 1, requestsPerPage = 10 } = req.query;
 
     const publications = await Publication.findAll({
       limit: requestsPerPage,
@@ -24,7 +24,7 @@ class HomeController {
           as: 'user',
         },
       ],
-      order: ['created_at'],
+      order: [['updatedAt', 'DESC']],
     });
 
     return res.render('home', { publications });

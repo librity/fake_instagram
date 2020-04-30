@@ -105,6 +105,16 @@ a {
   border-radius: 4px;
 }
 
+.add_publication_link {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+}
+
+.add_publication_icon{
+  width: 24px;
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;

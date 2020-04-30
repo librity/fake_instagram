@@ -35,7 +35,7 @@ $ cp .env.example .env
 2. create a persistent mysql5 docker container:
 
 ```bash
-$ docker run --name mysql_5_7_29 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5
+$ docker run --name mysql_5_7_29 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.7
 ```
 
 3. install our dependencies
