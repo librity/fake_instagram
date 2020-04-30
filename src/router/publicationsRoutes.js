@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import multer from "multer";
-import {join} from "path";
+import multer from 'multer';
 
 import PublicationsController from '../app/controllers/PublicationsController';
 import PublicationValidator from '../app/validators/PublicationValidator';
@@ -8,27 +7,13 @@ import PublicationValidator from '../app/validators/PublicationValidator';
 import CommentsController from '../app/controllers/CommentsController';
 import CommentValidator from '../app/validators/CommentValidator';
 
+import publicationImageUpload from '../config/publicationImageUpload'
+const publicationImageHandler = multer({ storage: publicationImageUpload });
+
 const publicationsRoutes = Router();
 
-const publicationsPicturesStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, join("public", "uploads", "publications_pics"));
-  },
-
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname);
-  },
-});
-const upload = multer({storage: publicationsPicturesStorage})
-
-publicationsRoutes.get( '/', PublicationsController.neW );
-publicationsRoutes.post(
-  '/',
-  upload.any(),
-  // PublicationValidator.publication,
-  PublicationsController.create
-);
-
+publicationsRoutes.get('/new', PublicationsController.neW);
+publicationsRoutes.post('/', publicationImageHandler.any(), PublicationsController.create);
 
 publicationsRoutes.post(
   '/:publication_id/like',

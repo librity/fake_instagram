@@ -1,13 +1,16 @@
 <section class="card">
-  <h2>Criar publicação</h2>
+  <div class="card-header">
+    <h2>Criar publicação</h2>
+  </div>
 
-  <p>Faça o upload da foto que deseja postar!</p>
+  <div class="card-body">
+      <p>Faça o upload da foto que deseja postar!</p>
+
+      <form action="/publications" method="POST" enctype="multipart/form-data">
+        <label for="photo">Selecione a foto: </label>
+        <input type="file" name="photo" id="photo">
   
-  <form action="/publications" method="POST" enctype="multipart/form-data">
-      <label for="photo">Selecione a foto</label>
-      <input type="file" name="photo" id="photo">
-
-      <button type="submit" class="btn btn-send color-primary">Postar</button>
-  </form>
-
+        <button type="submit" class="btn btn-send color-primary">Postar</button>
+      </form>
+  </div>
 </section>

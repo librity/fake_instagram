@@ -74,7 +74,7 @@ $ yarn start
 - [x] Search users (index)
 - [x] Create comments
 - [x] Basic like functionality for publications
-- [ ] Create publication with image upload
+- [x] Create publication with image upload
 - [ ] Advanced Like resource
 - [ ] Following/followed resource
 - [ ] Home feed shows followed-users' publications

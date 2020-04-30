@@ -2,12 +2,21 @@ import Publication from '../models/Publication';
 
 class PublicationsController {
   async neW(req, res) {
+    req.session.messageRender = 'publications/new';
+
     return res.render('publications/new');
   }
 
   async create(req, res) {
     const [photo] = req.files;
     const { id } = req.session.user;
+
+    if (!photo) {
+      return res.render('publications/new', {
+        message: 'Foto vazia!',
+        type: 'danger',
+      });
+    }
 
     await Publication.create({
       image: `/uploads/publications_pics/${photo.filename}`,
